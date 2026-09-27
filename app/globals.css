@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #f26522;
+    --primary-hover: #e05413;
+    --primary-light: #fff2eb;
+    --primary-subtle: #fef7f2;
+    --background: #f4f6fa;
+    --foreground: #1c1d22;
+    --card: #ffffff;
+    --card-foreground: #1c1d22;
+    --muted: #737787;
+    --muted-light: #9499ad;
+    --border: #f0f2f7;
+    --radius-card: 20px;
+    --font-inter: var(--font-inter);
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-optical-sizing: auto;
+    overflow-x: hidden;
+    user-select: none;
+  }
+}
+
+/* Custom Scrollbar for clean POS experience */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e6ef;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Glassmorphism and Card Shadow styles matching reference */
+.pos-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.pos-card-hover {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pos-card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -6px rgba(242, 101, 34, 0.12), 0 6px 14px -2px rgba(0, 0, 0, 0.04);
+}
+
+.active-pill-shadow {
+  box-shadow: 0 4px 14px 0 rgba(242, 101, 34, 0.3);
+}
+
+/* Clean Receipt Print Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+}
+
